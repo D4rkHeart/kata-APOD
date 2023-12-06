@@ -35,6 +35,12 @@ export class AppComponent implements OnInit {
     this.currentDate = nextDate;
     this.loadApod(this.formatDate(nextDate));
   }
+
+  isToday(): boolean {
+    const today = new Date();
+    return this.currentDate.toDateString() === today.toDateString();
+  }
+
   private formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
