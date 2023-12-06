@@ -28,6 +28,13 @@ export class AppComponent implements OnInit {
     this.currentDate = previousDate;
     this.loadApod(this.formatDate(previousDate));
   }
+
+  loadNext() {
+    const nextDate = new Date(this.currentDate);
+    nextDate.setDate(nextDate.getDate() + 1);
+    this.currentDate = nextDate;
+    this.loadApod(this.formatDate(nextDate));
+  }
   private formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
